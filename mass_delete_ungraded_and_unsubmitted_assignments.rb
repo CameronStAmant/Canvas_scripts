@@ -20,7 +20,7 @@ If this is your first time using this script, do the following only this time.
 
 1. Add your token, instance, and course ID above, on lines 3, 4, and 5, between the quotes. Save the file.
 2. Now, we need to open terminal to that folder, so cd into that folder.
-3. In terminal, type, without quotes, 'ruby mass_delete_ungraded_unsubmitted_assignments.rb', and watch it go!
+3. In terminal, type, without quotes, 'ruby mass_delete_ungraded_and_unsubmitted_assignments.rb', and watch it go!
 
 =end
 
