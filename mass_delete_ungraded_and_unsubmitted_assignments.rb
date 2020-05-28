@@ -42,8 +42,6 @@ last_page = link_headers.match(/rel=\"first\",<.+?>; rel=\"last\"/).to_s.slice(1
 next_page = link_headers.match(/rel=\"current\",<.+?>; rel=\"next\"/).to_s.slice(15..-14)
 
 puts "Generating a list of all assignments for the course."
-## Check to see if commenting out this portion works, as I think it's redundant and actually adds the same thing more than once.
-# if current_page != last_page
   while current_page != last_page
     response = HTTParty.get("#{next_page}", headers: {"Authorization" => "Bearer #{token}"})
     (assignments << response.body.scan(/\"id\":\d+,\"description\"/)).flatten!
@@ -55,11 +53,6 @@ puts "Generating a list of all assignments for the course."
     next_page = link_headers.match(/rel=\"current\",<.+?>; rel=\"next\"/).to_s.slice(15..-14)
     last_page = link_headers.match(/rel=\"first\",<.+?>; rel=\"last\"/).to_s.slice(13..-14)
   end
-#   response = HTTParty.get("#{current_page}", headers: {"Authorization" => "Bearer #{token}"})
-#   (assignments << response.body.scan(/\"id\":\d+,\"description\"/)).flatten!
-#   (assignment_title << response.body.scan(/\"name\":\".+?\",\"submission_types\"/)).flatten!
-#   (has_submissions << response.body.scan(/\"has_submitted_submissions\":\w+,/)).flatten!
-# end
 
 assignments.each do |x|
   a = x.scan(/\d+/)
