@@ -82,23 +82,3 @@ assignments.each do |x|
   counter += 1
 end
 puts "\n\n#{delete_counter} assignments deleted\n\n"
-
-=begin
-.* Only delete assignments that have has_submitted_submissions = false
-.* Only delete assignments that aren't graded
-.* Looks at the link header 
-.* and find the next page that way
-.* navigate to the next page and obtain the next set of assignments 
-.* currently crashes on last page results.
-.* Ensure graded discussions follow same pattern
-.* Ensure graded quizzes follow same pattern
-.* Ensure new quizzes is the same as well
-.* ungraded discussion            
-.* practice quizzes
-.* ungraded surveys
-.* graded surveys
-.* Make URL's relative and allow the user to give the instance and course, and then figure out the rest
-.* Add documentation
-* checkout finders other views and 
-* Possibly save the deleted log to a file, so the user can look over which assignments were deleted, in case the end user wants a specific one restored.
-=end
